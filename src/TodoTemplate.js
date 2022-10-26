@@ -1,11 +1,13 @@
 import "./TodoTemplate.css";
 
-function TodoTemplate() {
+const TodoTemplate = ({children}) =>  {
+
   return (
-<div className="Temaplte">
-  <h1 className="Title">TODO LIST</h1>
-</div>
+    <div className="Temaplte">
+      {
+        children
+      }
+    </div>
     );
 }
-
 export default TodoTemplate;

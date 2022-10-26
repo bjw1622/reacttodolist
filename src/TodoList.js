@@ -1,10 +1,10 @@
 import "./TodoList.css";
-function TodoList() {
+import TodoItem from "./TodoItem";
+const TodoList = () => {
   return (
- <div className="Todolist">
-    
- </div>
+    <div className="List">
+      <TodoItem/>
+    </div>
     );
 }
-
 export default TodoList;

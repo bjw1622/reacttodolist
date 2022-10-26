@@ -1,15 +1,18 @@
 import "./App.css";
 import TodoTemplate from './TodoTemplate'
 import TodoList from "./TodoList";
+import TodoHead from "./TodoHead";
+import TodoCreate from "./TodoCreate";
 
-function App() {
+const App = () => {
   return (
-    <div className="Body-background">
+    <div>
       <TodoTemplate>
-        <TodoList/>
-        </TodoTemplate>
+        <TodoHead></TodoHead>
+        <TodoList></TodoList>
+        <TodoCreate></TodoCreate>
+      </TodoTemplate>
     </div>
   );
 }
-
 export default App;
