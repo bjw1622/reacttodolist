@@ -1,5 +1,5 @@
 import './App.css'
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import TodoBoard from "./components/TodoBoard"
 function App() {
 
@@ -7,17 +7,33 @@ function App() {
 
   const [todoList, setTodoList] = useState([]);
 
-  const setInputVal = (event)=>{
-    setInputValue(event.target.value)
+  const [id,setId] = useState(0);
+
+  const addData = {
+    id,
+    inputValue,
   }
+
+  const setInputVal = (e)=>{
+    setInputValue(e.target.value);
+  }
+
   const addItem = () => {
-    setTodoList([...todoList, inputValue])
+    setTodoList([...todoList, addData]);
+    setInputValue("");
+    setId(id+1);
   }
+
+  const DeleteList = (id)=>{
+    //
+      setTodoList(todoList.filter((todo) => todo.id !== id));
+    }
+  
   return (
     <main>
-      <input type="text" onChange={setInputVal}/>
+      <input type="text" onChange={setInputVal} value={inputValue}/>
       <button onClick={addItem}>추가</button>
-      <TodoBoard todoList={todoList} />
+      <TodoBoard todoList={todoList} delete={DeleteList} />
     </main >
   )
 }
