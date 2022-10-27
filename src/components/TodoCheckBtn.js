@@ -1,14 +1,14 @@
 import React,{useState} from "react";
-
+import { FaRegCircle,FaRegCheckCircle } from "react-icons/fa";
 const TodoCheckBtn = (props)=>{
-    
-    const [completeState,setCompleteState] = useState("미완료");
-    
-    const clickCompleteState = ()=>{
-        setCompleteState('완료');
+    const [checkImg,SetCheckImg] = useState(<FaRegCircle/>)
+    const btnClick = ()=>{
+        SetCheckImg(<FaRegCheckCircle/>);
     }
     return(
-        <button onClick={clickCompleteState}>{completeState}</button>
-    );
+        <button onClick={btnClick}>
+            {checkImg}
+        </button>
+        )
 }
 export default TodoCheckBtn
