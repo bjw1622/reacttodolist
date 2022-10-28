@@ -1,5 +1,6 @@
 import React,{useState} from "react";
 import TodoBoard from "./TodoBoard";
+import {v4 as uuidv4} from 'uuid';
 
 const TodoList = ()=>{
     
@@ -7,10 +8,12 @@ const TodoList = ()=>{
 
     const [todoList, setTodoList] = useState([]);
   
-    const id = todoList.length;
+    const id = uuidv4();
+    const checked = false;
     const addData = {
       id,
       inputValue,
+      checked,
     }
     const setInputVal = (e)=>{
       setInputValue(e.target.value);
@@ -28,7 +31,7 @@ const TodoList = ()=>{
         <>
         <input type="text" onChange={setInputVal} value={inputValue}/>
         <button onClick={addItem}>추가</button>
-        <TodoBoard todoList={todoList} delete={DeleteList} />
+        <TodoBoard todoList={todoList} delete={DeleteList} check={addData.checked} />
         </>
     )
 }
