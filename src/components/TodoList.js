@@ -27,10 +27,16 @@ const TodoList = ()=>{
           setTodoList(todoList.filter((todo) => todo.id !== id));
         }
       }
+    const DeleteTotalList = ()=>{
+        if(window.confirm("전체 삭제 하시겠습니까?")){
+          setTodoList([]);
+        }
+      }  
     return(
         <>
         <input type="text" onChange={setInputVal} value={inputValue}/>
         <button onClick={addItem}>추가</button>
+        <button onClick={DeleteTotalList}>전체 삭제</button>
         <TodoBoard todoList={todoList} delete={DeleteList} check={addData.checked} />
         </>
     )

@@ -5,7 +5,7 @@ import "./TodoItem.css"
 function TodoItem(props) {
   return (
     <div className="todo-item">
-        <TodoCheckBtn btnText={"미완료"}/>
+        <TodoCheckBtn/>
       {props.item}
       <TodoDeleteBtn id={props.id} delete={props.delete}/>
     </div>
