@@ -7,8 +7,8 @@ import "./TodoItem.css"
 function TodoItem(props) {
   return (
     <div className="todo-item">
-        <TodoCheckBtn/>
-      {props.item}
+      <TodoCheckBtn id={props.id} check={props.check} checkClick={props.checkClick}/>
+      <h4>{props.item}</h4>
       <TodoChangeBtn id={props.id} change={props.change}/>
       <TodoDeleteBtn id={props.id} delete={props.delete}/>
     </div>

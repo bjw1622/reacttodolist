@@ -5,7 +5,7 @@ function TodoBoard(props) {
   return (
     <div>
       {props.todoList.map((item) => {
-        return <TodoItem key={item.id} item={item.inputValue} delete={props.delete} id={item.id} change={props.change} />
+        return <TodoItem key={item.id} item={item.inputValue} delete={props.delete} id={item.id} check={item.check} checkClick={props.checkClick} change={props.change} />
       })}
     </div>
   )
