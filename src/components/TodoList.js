@@ -31,7 +31,6 @@ const TodoListStyle = styled.div
   }
 
   button{
-    width:50%;
     margin: 10 auto 0 auto;
   }
  }
