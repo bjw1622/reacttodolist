@@ -34,7 +34,17 @@ const TodoListStyle = styled.div
     margin: 10 auto 0 auto;
   }
  }
-` 
+`
+// const todoListSlice = createSlice({
+//   name:'todoListSlice',
+//   initialState:{list:[]},
+//   reducers:{
+//     add:(state,action)=>{
+//       state.value = state.value + action.addData;
+//     }
+//   }
+// })
+
 const TodoList = ()=>{
     
     const [inputValue, setInputValue] = useState("");
@@ -51,6 +61,7 @@ const TodoList = ()=>{
     // 수정 method
     const changeInput = (id)=>{
       const changeInputValue = prompt("수정 내용을 입력해주세요");
+      
       if(changeInputValue !== null){
         const findId = todoList.findIndex(todoItem => todoItem.id === id);
         let copyTodoList = [...todoList];
@@ -102,15 +113,17 @@ const TodoList = ()=>{
       } 
 
     return(
-        <TodoListStyle>
-          <h1>Todo List</h1>
-          <input type="text" onChange={setInputVal} value={inputValue}/>
-          <Button variant="contained" onClick={addItem}>추가</Button>
-          <Button variant="contained" color="error" onClick={DeleteTotalList}>전체 삭제</Button>
-          <>
-          <TodoBoard todoList={todoList} delete={DeleteList} change={changeInput} checkClick={checkClick} />
-          </>
-        </TodoListStyle>
+      // <Provider store={store}>
+          <TodoListStyle>
+            <h1>Todo List</h1>
+            <input type="text" onChange={setInputVal} value={inputValue}/>
+            <Button variant="contained" onClick={addItem}>추가</Button>
+            <Button variant="contained" color="error" onClick={DeleteTotalList}>전체 삭제</Button>
+            <>
+            <TodoBoard todoList={todoList} delete={DeleteList} change={changeInput} checkClick={checkClick} />
+            </>
+          </TodoListStyle>
+        // </Provider>
     )
 }
 export default TodoList;
