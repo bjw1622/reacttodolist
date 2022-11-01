@@ -85,7 +85,7 @@ const TodoList = ()=>{
       }
       else{
         alert('값을 올바르게 입력해주세요');
-      }
+      }   
     }
 
     const DeleteList = (id)=>{
