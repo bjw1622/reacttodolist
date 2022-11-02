@@ -1,17 +1,24 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import TodoItem from "./TodoItem"
+import TodoItem from "./TodoItem";
 
-function TodoBoard() {
-  const totalList = useSelector((state)=>{
+const TodoBoard = () => {
+  const totalList = useSelector((state) => {
     return state.addList;
-  })
+  });
   return (
     <div>
       {totalList.list.map((item) => {
-        return <TodoItem key={item.id} id={item.id} item={item.inputValue} check={item.check}/>
+        return (
+          <TodoItem
+            key={item.id}
+            id={item.id}
+            item={item.inputValue}
+            check={item.check}
+          />
+        );
       })}
     </div>
-  )
-}
-export default TodoBoard
+  );
+};
+export default TodoBoard;
