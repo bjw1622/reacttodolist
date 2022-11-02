@@ -1,16 +1,18 @@
-import Button from '@mui/material/Button';
+import Button from "@mui/material/Button";
 import { useDispatch } from "react-redux";
 import { todoListAction } from "./TodoListSlice";
 
-function EntryDeleteList(){
-    const dispatch = useDispatch();
-    const DeleteTotalList = ()=>{
-        if(window.confirm("전체 삭제 하시겠습니까?")){
-            dispatch(todoListAction.entryDelete())
-        }
+const EntryDeleteList = () => {
+  const dispatch = useDispatch();
+  const DeleteTotalList = () => {
+    if (window.confirm("전체 삭제 하시겠습니까?")) {
+      dispatch(todoListAction.entryDelete());
     }
-    return(
-        <Button variant="contained" color="error" onClick={DeleteTotalList}>전체 삭제</Button>
-    )
-}
-export default EntryDeleteList
+  };
+  return (
+    <Button variant="contained" color="error" onClick={DeleteTotalList}>
+      전체 삭제
+    </Button>
+  );
+};
+export default EntryDeleteList;
