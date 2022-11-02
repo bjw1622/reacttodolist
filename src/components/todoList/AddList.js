@@ -10,6 +10,7 @@ const AddList = (props) => {
       props.addData.inputValue.trim() !== ""
     ) {
       dispatch(todoListAction.add(props.addData));
+      props.setInputVal("");
     } else {
       alert("값을 올바르게 입력해주세요");
     }

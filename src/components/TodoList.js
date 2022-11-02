@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { v4 as uuidv4 } from "uuid";
 import styled from "styled-components";
 import AddList from "./todoList/AddList";
 import EntryDeleteList from "./todoList/EntryDeleteList";
 import TodoBoard from "./todoList/TodoBoard";
+import { v4 as uuidv4 } from "uuid";
 const TodoListStyle = styled.div`
    {
     width: 512px;
@@ -37,7 +37,6 @@ const TodoListStyle = styled.div`
   }
 `;
 const TodoList = () => {
-  // redux toolkit redux
   const [inputValue, setInputValue] = useState("");
 
   const id = uuidv4();
@@ -49,14 +48,19 @@ const TodoList = () => {
   };
 
   const setInputVal = (e) => {
-    setInputValue(e.target.value);
+    setInputValue(e);
   };
 
   return (
     <TodoListStyle>
       <h1>Todo List</h1>
-      <input type="text" onChange={setInputVal} value={inputValue} />
-      <AddList addData={addData}></AddList>
+      <input
+        id="input-value"
+        type="text"
+        onChange={(e) => setInputVal(e.target.value)}
+        value={inputValue}
+      />
+      <AddList addData={addData} setInputVal={setInputVal}></AddList>
       <EntryDeleteList></EntryDeleteList>
       <TodoBoard></TodoBoard>
     </TodoListStyle>
