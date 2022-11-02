@@ -10,6 +10,9 @@ export default function Index() {
       <div>
         <Link to={"/todolist"}>todolist</Link>
       </div>
+      <div>
+        <Link to={"/calendar"}>calendar</Link>
+      </div>
     </>
   );
 }

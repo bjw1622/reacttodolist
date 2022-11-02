@@ -5,6 +5,7 @@ const Counter = () => {
   const dispatch = useDispatch();
 
   const count = useSelector((state) => {
+    console.log(state.calendarReducer.Month, state.calendarReducer.Date);
     return state.counter.value;
   });
 
