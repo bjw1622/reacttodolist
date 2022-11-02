@@ -30,8 +30,6 @@
             var newState;
             if (action.type === "CHANGE_COLOR") {
                 newState = Object.assign({}, state, { color: action.color });
-                console.log(newState);
-                console.log(action);
                 return newState;
             }
         }
@@ -70,7 +68,7 @@
 
         function green() {
             var state = store.getState();
-            document.querySelector('#green').innerHTML = `
+            document.querySelector('#green').innerHTML = ` 
                 <div class="container" id="component_green" style="background-color:${state.color}">
                     <h1>green</h1>
                     <input type="button" value="fire" onclick="
