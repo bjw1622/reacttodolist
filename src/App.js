@@ -7,25 +7,22 @@ import Index from "./components/index";
 import { counterReducer } from "./components/counter/Slice";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import TodoList from './components/TodoList';
+import { todoAddList } from "./components/todoList/TodoList";
 const store = configureStore({
   reducer:{
-    counter: counterReducer
+    counter: counterReducer,
+    addList : todoAddList,
   }
 })
 
 export default function App(){
     return(
       <Provider store={store}>
-        {/* <div>
-            <Counter></Counter>
-        </div> */}
         <BrowserRouter>
-				
 				<Routes>
 					<Route path="/" element={<Index />}></Route>
 					<Route path="/count" element={<Counter />}></Route>
 					<Route path="/todolist" element={<TodoList />}></Route>
-					{/* 상단에 위치하는 라우트들의 규칙을 모두 확인, 일치하는 라우트가 없는경우 처리 */}
 				</Routes>
 			</BrowserRouter>
       </Provider>

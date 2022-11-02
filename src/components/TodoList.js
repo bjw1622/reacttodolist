@@ -3,6 +3,7 @@ import TodoBoard from "./TodoBoard";
 import {v4 as uuidv4} from 'uuid';
 import styled from "styled-components";
 import Button from '@mui/material/Button';
+import AddList from "./todoList/AddList";
 const TodoListStyle = styled.div
 `{
   width: 512px;
@@ -35,20 +36,10 @@ const TodoListStyle = styled.div
   }
  }
 `
-// const todoListSlice = createSlice({
-//   name:'todoListSlice',
-//   initialState:{list:[]},
-//   reducers:{
-//     add:(state,action)=>{
-//       state.value = state.value + action.addData;
-//     }
-//   }
-// })
-
 const TodoList = ()=>{
     
     const [inputValue, setInputValue] = useState("");
-
+    
     const [todoList, setTodoList] = useState([]);
     
     const id = uuidv4();
@@ -58,6 +49,18 @@ const TodoList = ()=>{
       inputValue,
       check : false,
     }
+
+    const addItem = () => {
+      if(addData.inputValue !== null && addData.inputValue.trim() !== "")
+      {
+        setTodoList([...todoList, addData]);
+        setInputValue("");
+      }
+      else{
+        alert('값을 올바르게 입력해주세요');
+      }   
+    }
+
     // 수정 method
     const changeInput = (id)=>{
       const changeInputValue = prompt("수정 내용을 입력해주세요");
@@ -88,17 +91,6 @@ const TodoList = ()=>{
       setInputValue(e.target.value);
     }
 
-    const addItem = () => {
-      if(addData.inputValue !== null && addData.inputValue.trim() !== "")
-      {
-        setTodoList([...todoList, addData]);
-        setInputValue("");
-      }
-      else{
-        alert('값을 올바르게 입력해주세요');
-      }   
-    }
-
     const DeleteList = (id)=>{
         if(window.confirm("삭제 하시겠습니까?")){
           setTodoList(todoList.filter((todo) => todo.id !== id));
@@ -113,17 +105,14 @@ const TodoList = ()=>{
       } 
 
     return(
-      // <Provider store={store}>
           <TodoListStyle>
             <h1>Todo List</h1>
             <input type="text" onChange={setInputVal} value={inputValue}/>
             <Button variant="contained" onClick={addItem}>추가</Button>
             <Button variant="contained" color="error" onClick={DeleteTotalList}>전체 삭제</Button>
-            <>
-            <TodoBoard todoList={todoList} delete={DeleteList} change={changeInput} checkClick={checkClick} />
-            </>
+            <AddList addData={addData}></AddList>
+            {/* <TodoBoard todoList={todoList} delete={DeleteList} change={changeInput} checkClick={checkClick} /> */}
           </TodoListStyle>
-        // </Provider>
     )
 }
 export default TodoList;

@@ -4,8 +4,8 @@ import TodoItem from "./TodoItem"
 function TodoBoard(props) {
   return (
     <div>
-      {props.todoList.map((item) => {
-        return <TodoItem key={item.id} item={item.inputValue} delete={props.delete} id={item.id} check={item.check} checkClick={props.checkClick} change={props.change} />
+      {props.todoList.list.map((item) => {
+        return <TodoItem key={item.id} item={item.inputValue}/>
       })}
     </div>
   )

@@ -13,10 +13,10 @@ const TodoItemInput = styled.h4`
 function TodoItem(props) {
   return (
     <div className="todo-item">
-      <TodoCheckBtn id={props.id} check={props.check} checkClick={props.checkClick}/>
+      {/* <TodoCheckBtn id={props.id} check={props.check} checkClick={props.checkClick}/> */}
       <TodoItemInput>{props.item}</TodoItemInput>
-      <TodoChangeBtn id={props.id} change={props.change}/>
-      <TodoDeleteBtn id={props.id} delete={props.delete}/>
+      {/* <TodoChangeBtn id={props.id} change={props.change}/> */}
+      {/* <TodoDeleteBtn id={props.id} delete={props.delete}/> */}
     </div>
   )
 }
