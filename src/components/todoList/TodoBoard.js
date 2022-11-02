@@ -9,7 +9,7 @@ function TodoBoard() {
   return (
     <div>
       {totalList.list.map((item) => {
-        return <TodoItem key={item.id} id={item.id} item={item.inputValue}/>
+        return <TodoItem key={item.id} id={item.id} item={item.inputValue} check={item.check}/>
       })}
     </div>
   )
