@@ -6,8 +6,14 @@ const todoListSlice = createSlice({
   reducers:{
     add:(state,action)=>{
       state.list.push(action.payload);
+    },
+    entryDelete:(state,action)=>{
+      state.list=[];
+    },
+    delete:(state,action)=>{
+      state.list = (state.list.filter((list)=>list.id !== action.payload))
     }
-  }
+}
 })
 export const todoAddList = todoListSlice.reducer;
 export const todoListAction = todoListSlice.actions;
