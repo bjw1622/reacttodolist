@@ -32,5 +32,5 @@ const todoListSlice = createSlice({
     },
   },
 });
-export const todoAddList = todoListSlice.reducer;
+export const todoList = todoListSlice.reducer;
 export const todoListAction = todoListSlice.actions;

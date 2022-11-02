@@ -6,12 +6,12 @@ import Index from "./components/index";
 import { counterReducer } from "./components/counter/Slice";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import TodoList from "./components/TodoList";
-import { todoAddList } from "./components/todoList/TodoListSlice";
+import { todoList } from "./components/todoList/TodoListSlice";
 
 const store = configureStore({
   reducer: {
     counter: counterReducer,
-    addList: todoAddList,
+    addList: todoList,
   },
 });
 
