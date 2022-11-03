@@ -4,6 +4,7 @@ import AddList from "./todoList/AddList";
 import EntryDeleteList from "./todoList/EntryDeleteList";
 import TodoBoard from "./todoList/TodoBoard";
 import { v4 as uuidv4 } from "uuid";
+import moment from "moment/moment";
 const TodoListStyle = styled.div`
    {
     width: 512px;
@@ -45,6 +46,7 @@ const TodoList = () => {
     id,
     inputValue,
     check: false,
+    addDate: moment(new Date()).format("DD-MM-YYYY"),
   };
 
   const setInputVal = (e) => {
