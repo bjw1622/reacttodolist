@@ -10,7 +10,6 @@ const TodoBoard = () => {
   return (
     <div>
       {totalList.list.map((item) => {
-        // 오늘 날짜랑 비교해서 오늘 것만
         if (item.addDate === moment(new Date()).format("DD-MM-YYYY")) {
           return (
             <TodoItem

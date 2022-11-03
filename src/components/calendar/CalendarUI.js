@@ -8,14 +8,7 @@ import CalendarTodoList from "./CalendarTodoList";
 const CalendarUI = () => {
   const [value, onChange] = useState(new Date());
 
-  const todoListDateList = [];
-
-  const getTodoList = useSelector((state) => {
-    state.addList.list.map((todoList) => {
-      todoListDateList.push(todoList);
-    });
-    return todoListDateList;
-  });
+  const getTodoList = useSelector((state) => state.addList.list);
 
   return (
     <div>
@@ -24,7 +17,7 @@ const CalendarUI = () => {
         value={value}
         tileClassName={({ date, view }) => {
           if (
-            todoListDateList.find(
+            getTodoList.find(
               (x) => x.addDate === moment(date).format("DD-MM-YYYY")
             )
           ) {
