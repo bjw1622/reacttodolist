@@ -3,14 +3,14 @@ import React from "react";
 import { useSelector } from "react-redux";
 import TodoItem from "./TodoItem";
 
-const TodoBoard = () => {
+const TodoBoard = (props) => {
   const totalList = useSelector((state) => {
     return state.addList;
   });
   return (
     <div>
       {totalList.list.map((item) => {
-        if (item.addDate === moment(new Date()).format("DD-MM-YYYY")) {
+        if (item.addDate === moment(props.dateValue).format("DD-MM-YYYY")) {
           return (
             <TodoItem
               key={item.id}
