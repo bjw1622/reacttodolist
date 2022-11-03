@@ -3,41 +3,21 @@ import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import moment from "moment";
 import { useSelector } from "react-redux";
-import TodoItem from "../todoList/TodoItem";
+import CalendarTodoList from "./CalendarTodoList";
 
 const CalendarUI = () => {
   const [value, onChange] = useState(new Date());
 
-  const todoListDateList = [];
-
-  const getTodoDate = useSelector((state) => {
-    state.addList.list.map((todoList) => {
-      todoListDateList.push(todoList);
-    });
-    return todoListDateList;
-  });
-
-  let clickDayTodoList = [];
-
-  const clickDay = (event) => {
-    const clickDayInfo = moment(event).format("DD-MM-YYYY");
-    getTodoDate.map((todoList) => {
-      if (todoList.addDate === clickDayInfo) {
-        clickDayTodoList.push(todoList);
-      }
-    });
-    return clickDayTodoList;
-  };
+  const getTodoList = useSelector((state) => state.addList.list);
 
   return (
     <div>
       <Calendar
-        onClickDay={clickDay}
         onChange={onChange}
         value={value}
         tileClassName={({ date, view }) => {
           if (
-            todoListDateList.find(
+            getTodoList.find(
               (x) => x.addDate === moment(date).format("DD-MM-YYYY")
             )
           ) {
@@ -45,6 +25,9 @@ const CalendarUI = () => {
           }
         }}
       />
+      <CalendarTodoList
+        onClickDay={moment(value).format("DD-MM-YYYY")}
+      ></CalendarTodoList>
     </div>
   );
 };
