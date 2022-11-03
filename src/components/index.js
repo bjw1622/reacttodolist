@@ -1,9 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
-
-export default function Index() {
+import { Link, Outlet } from "react-router-dom";
+const Index = () => {
   return (
-    <>
+    <header style={{ background: "lightgray", padding: 16, fontSize: 24 }}>
       <div>
         <Link to={"/count"}>카운터페이지</Link>
       </div>
@@ -13,6 +12,8 @@ export default function Index() {
       <div>
         <Link to={"/calendar"}>calendar</Link>
       </div>
-    </>
+    </header>
   );
-}
+};
+
+export default Index;

@@ -2,7 +2,7 @@ import React from "react";
 import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 import Counter from "./components/counter/Counter";
-import Index from "./components/index";
+import Index from "./components/Index";
 import { counterReducer } from "./components/counter/Slice";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import TodoList from "./components/TodoList";
