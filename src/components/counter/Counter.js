@@ -1,11 +1,11 @@
 import { counterAction } from "./Slice";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const Counter = () => {
   const dispatch = useDispatch();
 
   const count = useSelector((state) => {
-    console.log(state.calendarReducer.Month, state.calendarReducer.Date);
     return state.counter.value;
   });
 
@@ -14,6 +14,7 @@ const Counter = () => {
   };
   return (
     <div>
+      <br />
       <button onClick={incremntEvent}>+</button> {count}
     </div>
   );
