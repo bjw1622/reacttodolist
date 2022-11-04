@@ -75,7 +75,7 @@ const TodoList = () => {
         }}
       />
       <TodoListStyle>
-        <h1>Todo List</h1>
+        <h1 style={{ margin: "0 auto", padding: "15px" }}>Todo List</h1>
         <input
           id="input-value"
           type="text"

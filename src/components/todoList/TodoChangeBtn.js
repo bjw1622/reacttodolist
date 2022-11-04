@@ -1,7 +1,17 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { todoListAction } from "./TodoListSlice";
-
+import styled from "styled-components";
+const ChangeBtnStyle = styled.button`
+   {
+    width: 39px;
+    height: 38px;
+    border: 0px;
+    padding: 0px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+  }
+`;
 const TodoChangeBtn = (props) => {
   const dispatch = useDispatch();
 
@@ -15,6 +25,6 @@ const TodoChangeBtn = (props) => {
       alert("올바른 값을 입력해주세요.");
     }
   };
-  return <button onClick={changeInput}>수정</button>;
+  return <ChangeBtnStyle onClick={changeInput}>수정</ChangeBtnStyle>;
 };
 export default TodoChangeBtn;

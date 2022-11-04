@@ -12,12 +12,17 @@ const TodoItemInput = styled.h4`
 `;
 const TodoItem = (props) => {
   return (
-    <div className="todo-item">
-      <TodoCheckBtn id={props.id} check={props.check} />
-      <TodoItemInput>{props.item}</TodoItemInput>
-      <TodoChangeBtn id={props.id} />
-      <TodoDeleteBtn id={props.id} />
-    </div>
+    <>
+      <div className="todo-item">
+        <TodoCheckBtn id={props.id} check={props.check} />
+        <TodoItemInput>{props.item}</TodoItemInput>
+        <div>
+          <TodoChangeBtn id={props.id} />
+          <TodoDeleteBtn id={props.id} />
+        </div>
+      </div>
+      <hr style={{ margin: "0px", border: "1px solid #7c7575" }} />
+    </>
   );
 };
 export default TodoItem;
