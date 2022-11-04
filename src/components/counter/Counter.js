@@ -1,7 +1,11 @@
 import { counterAction } from "./Slice";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-
+import styled from "styled-components";
+const CounterBtn = styled.button`
+   {
+    opacity: ${(count) => (count === 2 ? "0.1" : "1")};
+  }
+`;
 const Counter = () => {
   const dispatch = useDispatch();
 
@@ -15,7 +19,7 @@ const Counter = () => {
   return (
     <div>
       <br />
-      <button onClick={incremntEvent}>+</button> {count}
+      <CounterBtn onClick={incremntEvent}>+</CounterBtn> {count}
     </div>
   );
 };

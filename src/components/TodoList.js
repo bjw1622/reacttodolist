@@ -14,14 +14,14 @@ const TodoListStyle = styled.div`
     border-radius: 16px;
     box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.04);
     margin: 15px auto 32px auto;
-    background: gray;
+    background: linear-gradient(45deg, black, transparent);
     display: flex;
     flex-direction: column;
 
     h1 {
       margin: 20px 0px 20px 10px;
       font-size: 36px;
-      color: #343a40;
+      color: white;
     }
 
     input {
