@@ -5,23 +5,23 @@ import EntryDeleteList from "./todoList/EntryDeleteList";
 import TodoBoard from "./todoList/TodoBoard";
 import { v4 as uuidv4 } from "uuid";
 import moment from "moment/moment";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Calendar } from "react-calendar";
+import { todoListAction } from "./todoList/TodoListSlice";
 const TodoListStyle = styled.div`
    {
     width: 512px;
-    height: 768px;
     border-radius: 16px;
     box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.04);
     margin: 15px auto 32px auto;
-    background: gray;
+    background: linear-gradient(45deg, black, transparent);
     display: flex;
     flex-direction: column;
 
     h1 {
       margin: 20px 0px 20px 10px;
       font-size: 36px;
-      color: #343a40;
+      color: white;
     }
 
     input {
@@ -47,6 +47,17 @@ const TodoList = () => {
   const getTodoList = useSelector((state) => state.addList.list);
 
   const id = uuidv4();
+
+  const dispatch = useDispatch();
+
+  const addTodoList = () => {
+    if (addData.inputValue !== null && addData.inputValue.trim() !== "") {
+      dispatch(todoListAction.add(addData));
+      setInputVal("");
+    } else {
+      alert("값을 올바르게 입력해주세요");
+    }
+  };
 
   const addData = {
     id,
@@ -75,12 +86,18 @@ const TodoList = () => {
         }}
       />
       <TodoListStyle>
-        <h1>Todo List</h1>
+        <h1 style={{ margin: "0 auto", padding: "15px" }}>Todo List</h1>
         <input
           id="input-value"
           type="text"
           onChange={(e) => setInputVal(e.target.value)}
           value={inputValue}
+          onKeyPress={(event) => {
+            if (event.key === "Enter") {
+              setInputVal(event.target.value);
+              addTodoList();
+            }
+          }}
         />
         <AddList addData={addData} setInputVal={setInputVal}></AddList>
         <EntryDeleteList></EntryDeleteList>

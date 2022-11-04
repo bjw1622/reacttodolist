@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { todoListAction } from "./TodoListSlice";
+import Button from "@mui/material/Button";
 
 const TodoDeleteBtn = (props) => {
   const dispatch = useDispatch();
@@ -9,6 +10,15 @@ const TodoDeleteBtn = (props) => {
       dispatch(todoListAction.delete(props.id));
     }
   };
-  return <button onClick={() => DeleteList()}>삭제</button>;
+  return (
+    <Button
+      style={{ marginTop: "6px" }}
+      variant="contained"
+      color="error"
+      onClick={() => DeleteList()}
+    >
+      삭제
+    </Button>
+  );
 };
 export default TodoDeleteBtn;

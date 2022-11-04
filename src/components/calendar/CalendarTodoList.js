@@ -24,7 +24,7 @@ const CalendarTodoList = (props) => {
   const getTodoList = useSelector((state) => state.addList.list);
 
   return (
-    <div>
+    <div style={{ width: "100%", margin: "auto" }}>
       <h2>ToDoList</h2>
       <h3>{moment(props.onClickDay).format("YYYY-DD-MM")}</h3>
       <input

@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { todoListAction } from "./TodoListSlice";
+import Button from "@mui/material/Button";
 
 const TodoChangeBtn = (props) => {
   const dispatch = useDispatch();
@@ -15,6 +16,15 @@ const TodoChangeBtn = (props) => {
       alert("올바른 값을 입력해주세요.");
     }
   };
-  return <button onClick={changeInput}>수정</button>;
+  return (
+    <Button
+      style={{ marginTop: "6px", marginRight: "3px" }}
+      variant="contained"
+      color="success"
+      onClick={changeInput}
+    >
+      수정
+    </Button>
+  );
 };
 export default TodoChangeBtn;

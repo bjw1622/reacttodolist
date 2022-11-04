@@ -1,35 +1,36 @@
 import { Outlet } from "react-router";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-const ulStyle = styled.ul`
+const UlStyle = styled.ul`
    {
-    padding: 0px;
-    margin: 12px;
+    padding: 10px;
+    margin: 0px;
   }
 `;
 const Layout = () => {
   return (
-    <div>
+    <>
       <header
         style={{
           background: "lightgray",
           color: "white",
+          display: "flex",
         }}
       >
-        <ulStyle>
-          <Link to={"/count"}>카운터페이지</Link>
-        </ulStyle>
-        <ulStyle>
-          <Link to={"/"}>todolist</Link>
-        </ulStyle>
-        <ulStyle>
-          <Link to={"/calendar"}>calendar</Link>
-        </ulStyle>
+        <UlStyle>
+          <Link to={"/count"}>Count</Link>
+        </UlStyle>
+        <UlStyle>
+          <Link to={"/"}>TodoList</Link>
+        </UlStyle>
+        <UlStyle>
+          <Link to={"/calendar"}>Calendar</Link>
+        </UlStyle>
       </header>
       <main>
         <Outlet />
       </main>
-    </div>
+    </>
   );
 };
 export default Layout;
