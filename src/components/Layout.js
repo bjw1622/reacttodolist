@@ -18,13 +18,13 @@ const Layout = () => {
         }}
       >
         <UlStyle>
-          <Link to={"/count"}>카운터페이지</Link>
+          <Link to={"/count"}>Count</Link>
         </UlStyle>
         <UlStyle>
-          <Link to={"/"}>todolist</Link>
+          <Link to={"/"}>TodoList</Link>
         </UlStyle>
         <UlStyle>
-          <Link to={"/calendar"}>calendar</Link>
+          <Link to={"/calendar"}>Calendar</Link>
         </UlStyle>
       </header>
       <main>
