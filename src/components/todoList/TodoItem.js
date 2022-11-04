@@ -21,7 +21,14 @@ const TodoItem = (props) => {
           <TodoDeleteBtn id={props.id} />
         </div>
       </div>
-      <hr style={{ margin: "0px", border: "1px solid #7c7575" }} />
+      <hr
+        style={{
+          margin: "auto",
+          border: "1px solid #7c7575",
+          width: "92%",
+          textAlign: "center",
+        }}
+      />
     </>
   );
 };
