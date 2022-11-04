@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 const CounterBtn = styled.button`
    {
-    opacity: ${(count) => (count === 2 ? "0.1" : "1")};
+    opacity: ${(props) => (props.counter === 2 ? "0.1" : "1")};
   }
 `;
 const Counter = () => {
@@ -19,7 +19,10 @@ const Counter = () => {
   return (
     <div>
       <br />
-      <CounterBtn onClick={incremntEvent}>+</CounterBtn> {count}
+      <CounterBtn onClick={incremntEvent} counter={count}>
+        +
+      </CounterBtn>{" "}
+      {count}
     </div>
   );
 };

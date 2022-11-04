@@ -11,7 +11,6 @@ const TodoItemStyle = styled.div`
     display: flex;
     margin-top: 2px;
     color: white;
-    // 가변 설정??
     opacity: ${(props) => (props.check ? "0.3" : "1")};
   }
 `;
@@ -22,10 +21,19 @@ const TodoItemInput = styled.h4`
   }
 `;
 
+const HrStyle = styled.hr`
+   {
+    margin: auto;
+    border: 1px solid #7c7575;
+    width: 90%;
+    textalign: center;
+  }
+`;
+
 const TodoItem = (props) => {
   return (
     <>
-      <TodoItemStyle>
+      <TodoItemStyle check={props.check}>
         <TodoCheckBtn id={props.id} check={props.check} />
         <TodoItemInput>{props.item}</TodoItemInput>
         <div>
@@ -33,14 +41,7 @@ const TodoItem = (props) => {
           <TodoDeleteBtn id={props.id} />
         </div>
       </TodoItemStyle>
-      <hr
-        style={{
-          margin: "auto",
-          border: "1px solid #7c7575",
-          width: "90%",
-          textAlign: "center",
-        }}
-      />
+      <HrStyle />
     </>
   );
 };
