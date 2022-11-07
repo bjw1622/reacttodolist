@@ -9,12 +9,15 @@ import { todoList } from "./components/todoList/TodoListSlice";
 import CalendarUI from "./components/calendar/CalendarUI";
 import { CalendarSliceReducer } from "./components/calendar/CalendarSlice";
 import Layout from "./components/Layout";
+import { boardReducer } from "./components/board/BoardSlice";
+import Index from "./components/board/Index";
 
 const store = configureStore({
   reducer: {
     counter: counterReducer,
     addList: todoList,
     calendarReducer: CalendarSliceReducer,
+    boardReducer: boardReducer,
   },
 });
 
@@ -27,6 +30,7 @@ const App = () => {
             <Route path="/count" element={<Counter />}></Route>
             <Route path="/" element={<TodoList />}></Route>
             <Route path="/calendar" element={<CalendarUI />}></Route>
+            <Route path="/board" element={<Index />}></Route>
           </Route>
         </Routes>
       </BrowserRouter>
