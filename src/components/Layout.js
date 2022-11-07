@@ -12,25 +12,39 @@ const Layout = () => {
     <>
       <header
         style={{
-          background: "lightgray",
+          background: "gray",
           color: "white",
           display: "flex",
         }}
       >
         <UlStyle>
-          <Link to={"/count"}>Count</Link>
+          <Link
+            to={"/count"}
+            style={{ color: "white", textDecoration: "none" }}
+          >
+            Count
+          </Link>
         </UlStyle>
         <UlStyle>
-          <Link to={"/"}>TodoList</Link>
+          <Link style={{ color: "white", textDecoration: "none" }} to={"/"}>
+            TodoList
+          </Link>
         </UlStyle>
         <UlStyle>
-          <Link to={"/calendar"}>Calendar</Link>
+          <Link
+            style={{ color: "white", textDecoration: "none" }}
+            to={"/calendar"}
+          >
+            Calendar
+          </Link>
         </UlStyle>
         <UlStyle>
-          <Link to={"/board"}>Board</Link>
-        </UlStyle>
-        <UlStyle>
-          <Link to={"/board/write"}>Write</Link>
+          <Link
+            style={{ color: "white", textDecoration: "none" }}
+            to={"/board"}
+          >
+            Board
+          </Link>
         </UlStyle>
       </header>
       <main>
