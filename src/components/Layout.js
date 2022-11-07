@@ -26,6 +26,12 @@ const Layout = () => {
         <UlStyle>
           <Link to={"/calendar"}>Calendar</Link>
         </UlStyle>
+        <UlStyle>
+          <Link to={"/board"}>Board</Link>
+        </UlStyle>
+        <UlStyle>
+          <Link to={"/board/write"}>Write</Link>
+        </UlStyle>
       </header>
       <main>
         <Outlet />
