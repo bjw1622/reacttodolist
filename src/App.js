@@ -11,6 +11,7 @@ import { CalendarSliceReducer } from "./components/calendar/CalendarSlice";
 import Layout from "./components/Layout";
 import { boardReducer } from "./components/board/BoardSlice";
 import Index from "./components/board/Index";
+import Write from "./components/board/Write";
 
 const store = configureStore({
   reducer: {
@@ -31,6 +32,7 @@ const App = () => {
             <Route path="/" element={<TodoList />}></Route>
             <Route path="/calendar" element={<CalendarUI />}></Route>
             <Route path="/board" element={<Index />}></Route>
+            <Route path="/board/write" element={<Write />}></Route>
           </Route>
         </Routes>
       </BrowserRouter>
