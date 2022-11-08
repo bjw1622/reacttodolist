@@ -14,7 +14,7 @@ const TodoListStyle = styled.div`
     border-radius: 16px;
     box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.04);
     margin: 15px auto 32px auto;
-    background: linear-gradient(45deg, black, transparent);
+    background: darkgray;
     display: flex;
     flex-direction: column;
 
