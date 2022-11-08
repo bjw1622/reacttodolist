@@ -12,7 +12,7 @@ const CounterBtn = styled.button`
     opacity: ${(count) => (count === 2 ? "0.1" : "1")};
   }
 `;
-
+let inputCount = 1;
 const Counter = () => {
   const dispatch = useDispatch();
 
@@ -20,38 +20,29 @@ const Counter = () => {
     addDate: moment(new Date()).format("DD-MM-YYYY"),
     check: false,
     id: uuidv4(),
-    inputValue: "test",
+    inputValue: `test${inputCount++}`,
   };
 
   const totalList = useSelector((state) => {
     return state.addList;
   });
-  // Axios get방식
-  // useEffect(() => {
-  //   async function getData() {
-  //     const value = await Axios.get("http://localhost:3001/todo");
-  //     console.log(value);
-  //     console.log("useEffect 실행");
-  //   }
-  //   getData();
-  // }, []);
 
+  // Axios get방식
   useEffect(() => {
-    Axios.get(`http://localhost:3001/todo`)
-      .then((res) => {
-        console.log(res);
-        console.log("useEffect 실행");
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  });
+    async function getData() {
+      const value = await Axios.get("http://localhost:3001/todo");
+      console.log(value);
+      console.log(totalList);
+      console.log("useEffect 실행");
+    }
+    getData();
+  }, [totalList]);
 
   // Axios post방식
   const btnClick = () => {
     Axios.post(`http://localhost:3001/todo`, addData)
       .then((res) => {
-        console.log(res);
+        dispatch(todoListAction.add(addData));
       })
       .catch((error) => {
         console.log(error);
