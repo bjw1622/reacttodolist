@@ -15,11 +15,11 @@ const TodoItemStyle = styled.div`
   }
 `;
 
-const TodoItemInput = styled.h4`
+const TodoItemInput = styled.h6`
    {
     margin: 15px auto auto auto;
     text-decoration: ${(props) =>
-      props.check ? "line-through red 3px" : "none"};
+      props.check ? "line-through black 3px" : "none"};
   }
 `;
 

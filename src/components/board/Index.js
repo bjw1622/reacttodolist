@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import styled from "styled-components";
 import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
+import { Link } from "react-router-dom";
 
 const BodyContent = styled.div`
    {
@@ -47,7 +48,10 @@ const Index = () => {
             <Form.Control type="text" style={{ height: "40px" }} />
           </Form.Group>
         </Form>
-        <Button variant="secondary" style={{ width: "60px", height: "40px" }}>
+        <Button
+          variant="info"
+          style={{ width: "60px", height: "40px", color: "white" }}
+        >
           검색
         </Button>
       </FindDiv>
@@ -77,28 +81,28 @@ const Index = () => {
             <td className="text-center">3</td>
           </tr>
           <tr>
-            <td className="text-center">2</td>
+            <td className="text-center">3</td>
             <td className="text-center">Jacob</td>
             <td className="text-center">Thornton</td>
             <td className="text-center">2</td>
             <td className="text-center">3</td>
           </tr>
           <tr>
-            <td className="text-center">2</td>
+            <td className="text-center">4</td>
             <td className="text-center">Jacob</td>
             <td className="text-center">Thornton</td>
             <td className="text-center">2</td>
             <td className="text-center">3</td>
           </tr>
           <tr>
-            <td className="text-center">2</td>
+            <td className="text-center">5</td>
             <td className="text-center">Jacob</td>
             <td className="text-center">Thornton</td>
             <td className="text-center">2</td>
             <td className="text-center">3</td>
           </tr>
           <tr>
-            <td className="text-center">2</td>
+            <td className="text-center">6</td>
             <td className="text-center">Jacob</td>
             <td className="text-center">Thornton</td>
             <td className="text-center">2</td>
@@ -111,20 +115,22 @@ const Index = () => {
         aria-label="First group"
         style={{ display: "block", textAlign: "center" }}
       >
-        <Button variant="info" style={{ color: "white" }}>
+        <Button variant="secondary" style={{ color: "white" }}>
           1
         </Button>
-        <Button variant="info" style={{ color: "white" }}>
+        <Button variant="secondary" style={{ color: "white" }}>
           2
         </Button>
-        <Button variant="info" style={{ color: "white" }}>
+        <Button variant="secondary" style={{ color: "white" }}>
           3
         </Button>
-        <Button variant="info" style={{ color: "white" }}>
+        <Button variant="secondary" style={{ color: "white" }}>
           4
         </Button>
       </ButtonGroup>
-      <Button variant="primary">글쓰기</Button>{" "}
+      <Link to="/board/write">
+        <Button variant="primary">글쓰기</Button>
+      </Link>
     </BodyContent>
   );
 };
