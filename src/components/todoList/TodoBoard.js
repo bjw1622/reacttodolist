@@ -19,6 +19,8 @@ const TodoBoard = (props) => {
               check={item.check}
             />
           );
+        } else {
+          return <></>;
         }
       })}
     </div>

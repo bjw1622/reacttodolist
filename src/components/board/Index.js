@@ -5,6 +5,7 @@ import styled from "styled-components";
 import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import { Link } from "react-router-dom";
+import styles from "./Index.module.css";
 
 const BodyContent = styled.div`
    {
@@ -20,7 +21,7 @@ const FindDiv = styled.div`
 const Index = () => {
   return (
     <BodyContent>
-      <h2 style={{ marginTop: "20px" }}>게시판</h2>
+      <h2 className={styles.Title}>게시판</h2>
       <hr />
       <FindDiv>
         <Form.Select
