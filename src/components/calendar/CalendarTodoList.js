@@ -44,6 +44,8 @@ const CalendarTodoList = (props) => {
               check={item.check}
             />
           );
+        } else {
+          return <></>;
         }
       })}
     </div>
