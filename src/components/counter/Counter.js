@@ -14,7 +14,7 @@ const Counter = () => {
     return state.counter.value;
   });
   useEffect(() => {
-    dispatch(counterAction.upRequest());
+    dispatch(counterAction.getCounstRequest());
   }, []);
   const incremntEvent = () => {
     dispatch(counterAction.upRequest());
