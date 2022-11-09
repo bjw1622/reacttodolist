@@ -1,7 +1,7 @@
 import { counterAction } from "./Slice";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
-import React from "react";
+import React, { useEffect } from "react";
 
 const CounterBtn = styled.button`
    {
@@ -10,16 +10,15 @@ const CounterBtn = styled.button`
 `;
 const Counter = () => {
   const dispatch = useDispatch();
-
   const count = useSelector((state) => {
     return state.counter.value;
   });
-
-  // count X
+  useEffect(() => {
+    dispatch(counterAction.upRequest());
+  }, []);
   const incremntEvent = () => {
-    dispatch(counterAction.upRequest(1));
+    dispatch(counterAction.upRequest());
   };
-
   return (
     <>
       <div>

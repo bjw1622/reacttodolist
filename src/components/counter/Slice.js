@@ -1,19 +1,18 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, current } from "@reduxjs/toolkit";
 
 const counterSlice = createSlice({
   name: "counterSlice",
   initialState: { value: 0 },
   reducers: {
     upRequest: (state, action) => {
-      state.value = state.value + action.payload;
-      console.log("upRequest 요청 action");
-      console.log("API통신");
+      console.log("reducer /  통신 요청");
     },
-    upSuccess: (state, action) => {
-      console.log("Success");
+    upSuccess: (state, { payload }) => {
+      console.log("Success / 통신 성공");
+      state.value = payload.data;
     },
     upFailure: (state, action) => {
-      console.log("Failure");
+      console.log("Failure / 통신 실패");
     },
   },
 });

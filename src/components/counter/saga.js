@@ -1,23 +1,17 @@
-import {
-  all,
-  fork,
-  takeLatest,
-  delay,
-  put,
-  takeEvery,
-} from "redux-saga/effects";
+import { takeLatest, delay, put, call } from "redux-saga/effects";
+import api from "./api";
 import { counterAction } from "./Slice";
 
 function* up(action) {
   try {
-    yield delay(3000);
-    yield console.log("up실행중");
+    const count = yield call(api.getCount);
+    yield put({ type: counterAction.upSuccess, payload: count });
   } catch (error) {
-    yield console.log("saga / logIn2");
+    yield put(counterAction.upFailure());
   }
 }
 
 // 이벤트 리스너 같은 역할을 한다.
 export function* watchCounter() {
-  yield takeEvery(counterAction.upRequest, up);
+  yield takeLatest(counterAction.upRequest, up);
 }
