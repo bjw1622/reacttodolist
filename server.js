@@ -21,6 +21,7 @@ app.get("/todo", function (req, res) {
 });
 
 app.post("/todo", function (req, res) {
+  todos.push(req.body);
   res.send(todos);
 });
 
