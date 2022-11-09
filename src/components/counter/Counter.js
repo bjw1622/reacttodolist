@@ -15,8 +15,9 @@ const Counter = () => {
     return state.counter.value;
   });
 
+  // count X
   const incremntEvent = () => {
-    dispatch(counterAction.up(2));
+    dispatch(counterAction.upRequest(1));
   };
 
   return (

@@ -6,10 +6,10 @@ import { todoList } from "./components/todoList/TodoListSlice";
 import { combineReducers } from "redux";
 
 const rootReducer = combineReducers({
-  counterReducer,
-  CalendarSliceReducer,
-  boardReducer,
-  todoList,
+  counter: counterReducer,
+  calendarReducer: CalendarSliceReducer,
+  boardReducer: boardReducer,
+  addList: todoList,
 });
 
 export function* rootSaga() {

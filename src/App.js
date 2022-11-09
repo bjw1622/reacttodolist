@@ -12,7 +12,6 @@ import createSagaMiddleware from "redux-saga";
 import { applyMiddleware, createStore } from "redux";
 import rootReducer from "./rootReducer";
 import { watchCounter } from "./components/counter/saga";
-// import { composeWithDevTools } from "@reduxjs/toolkit/dist/devtoolsExtension";
 import { all, fork, takeLatest, delay, put } from "redux-saga/effects";
 
 const sagaMiddleware = createSagaMiddleware(); // 사가 미들웨어를 만듭니다.
@@ -39,10 +38,10 @@ const App = () => {
         <Routes>
           <Route element={<Layout />}>
             <Route path="/count" element={<Counter />}></Route>
-            {/* <Route path="/" element={<TodoList />}></Route>
+            <Route path="/" element={<TodoList />}></Route>
             <Route path="/calendar" element={<CalendarUI />}></Route>
             <Route path="/board" element={<Index />}></Route>
-            <Route path="/board/write" element={<Write />}></Route> */}
+            <Route path="/board/write" element={<Write />}></Route>
           </Route>
         </Routes>
       </BrowserRouter>
