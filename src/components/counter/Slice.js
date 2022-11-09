@@ -7,6 +7,7 @@ const counterSlice = createSlice({
     upRequest: (state, action) => {
       state.value = state.value + action.payload;
       console.log("upRequest 요청 action");
+      console.log("API통신");
     },
     upSuccess: (state, action) => {
       console.log("Success");
