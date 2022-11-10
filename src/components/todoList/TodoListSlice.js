@@ -1,57 +1,48 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, current } from "@reduxjs/toolkit";
 
 const todoListSlice = createSlice({
   name: "todoListSlice",
   initialState: {
-    list: [
-      {
-        addDate: "02-11-2022",
-        check: false,
-        id: "saddasdasd-sadada-sdadasd1",
-        inputValue: "2022-11-02 Test1",
-      },
-      {
-        addDate: "02-11-2022",
-        check: false,
-        id: "saddasdasd-sadada-sdadasd2131",
-        inputValue: "2022-11-02 Test2",
-      },
-      {
-        addDate: "11-11-2022",
-        check: false,
-        id: "saddasdasd-sadada-sdadasd2",
-        inputValue: "2022-11-11",
-      },
-      {
-        addDate: "01-12-2022",
-        check: false,
-        id: "saddasdasd-sadada-sdadasd3",
-        inputValue: "2022-12-01",
-      },
-      {
-        addDate: "06-12-2022",
-        check: false,
-        id: "saddasdasd-sadada-sdadasdASD3",
-        inputValue: "2022-12-06",
-      },
-      {
-        addDate: "07-12-2022",
-        check: false,
-        id: "saddasdaASDsd-sadada-sdadasdASD3",
-        inputValue: "2022-12-07",
-      },
-    ],
+    list: [],
   },
   reducers: {
-    add: (state, action) => {
-      state.list.push(action.payload);
+    getTodoRequest: (state, action) => {
+      console.log("getTodoRequest");
+    },
+    getTodoSuccess: (state, { payload }) => {
+      console.log("getTodoSuccess");
+      state.list = payload;
+    },
+    getTodoFailure: (state, action) => {
+      console.log("getTodoFailure");
+    },
+
+    addRequest: (state, action) => {
+      console.log("addRequest");
+    },
+    addSuccess: (state, { payload }) => {
+      console.log("addSuccess");
+      state.list = payload;
+    },
+    addFailure: (state, action) => {
+      console.log("addFailure");
+    },
+    deleteRequest: (state, action) => {
+      console.log("deleteRequest");
+    },
+    deleteSuccess: (state, { payload }) => {
+      console.log("deleteSuccess");
+      state.list = payload;
+    },
+    deleteFailure: (state, action) => {
+      console.log("deleteFailure");
     },
     entryDelete: (state, action) => {
       state.list = [];
     },
-    delete: (state, action) => {
-      state.list = state.list.filter((list) => list.id !== action.payload);
-    },
+    // delete: (state, action) => {
+    //   state.list = state.list.filter((list) => list.id !== action.payload);
+    // },
     change: (state, action) => {
       const findId = state.list.findIndex(
         (todoItem) => todoItem.id === action.payload.id

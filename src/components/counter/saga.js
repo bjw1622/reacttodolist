@@ -5,7 +5,6 @@ import { counterAction } from "./Slice";
 function* getCount(action) {
   try {
     yield delay(2000);
-    console.log("saga 실행");
     const counter = yield call(api.getCount);
     yield put({ type: counterAction.getCounstSucess, payload: counter });
   } catch (error) {
