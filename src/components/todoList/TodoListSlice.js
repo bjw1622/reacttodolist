@@ -57,6 +57,16 @@ const todoListSlice = createSlice({
     putInputValueFailure: (state, action) => {
       console.log("putInputValueFailure");
     },
+    putCheckRequest: (state, action) => {
+      console.log("putCheckRequest");
+    },
+    putCheckSuccess: (state, { payload }) => {
+      console.log("putCheckSuccess");
+      state.list = payload;
+    },
+    putCheckFailure: (state, action) => {
+      console.log("putCheckFailure");
+    },
     check: (state, action) => {
       const findId = state.list.findIndex(
         (todoItem) => todoItem.id === action.payload

@@ -45,8 +45,9 @@ app.put("/todoInputValue", function (req, res) {
 
 app.put("/todoCheckValue", function (req, res) {
   const findIndex = todos.find((todo) => todo.id === req.body.data.Id);
-  // findIndex.inputValue = req.body.data.InputValue;
-  // res.json(todos);
+  console.log(req.body);
+  findIndex.check = !findIndex.check;
+  res.json(todos);
 });
 
 app.get("/count", function (req, res) {

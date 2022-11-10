@@ -24,11 +24,20 @@ const putTodoInputValue = (putData) => {
     },
   });
 };
+const putTodoCheck = (putData) => {
+  return Axios.put("http://localhost:3001/todoCheckValue", {
+    data: {
+      Id: putData.id,
+      InputValue: putData.changeInputValue,
+    },
+  });
+};
 const api = {
   getTodo,
   postTodo,
   deleteTodo,
   deleteEntryTodo,
   putTodoInputValue,
+  putTodoCheck,
 };
 export default api;
