@@ -37,20 +37,35 @@ const todoListSlice = createSlice({
     deleteFailure: (state, action) => {
       console.log("deleteFailure");
     },
-    entryDelete: (state, action) => {
+    deleteEntryRequest: (state, action) => {
+      console.log("deleteEntryRequest");
+    },
+    deleteEntrySuccess: (state, { payload }) => {
+      console.log("deleteEntrySuccess");
       state.list = [];
     },
-    // delete: (state, action) => {
-    //   state.list = state.list.filter((list) => list.id !== action.payload);
-    // },
-    change: (state, action) => {
-      const findId = state.list.findIndex(
-        (todoItem) => todoItem.id === action.payload.id
-      );
-      if (findId !== -1) {
-        state.list[findId].inputValue = action.payload.changeInputValue;
-        state.list[findId].check = false;
-      }
+    deleteEntryFailure: (state, action) => {
+      console.log("deleteEntryFailure");
+    },
+    putInputValueRequest: (state, action) => {
+      console.log("putInputValueRequest");
+    },
+    putInputValueSuccess: (state, { payload }) => {
+      console.log("putInputValueSuccess");
+      state.list = payload.data;
+    },
+    putInputValueFailure: (state, action) => {
+      console.log("putInputValueFailure");
+    },
+    putCheckRequest: (state, action) => {
+      console.log("putCheckRequest");
+    },
+    putCheckSuccess: (state, { payload }) => {
+      console.log("putCheckSuccess");
+      state.list = payload;
+    },
+    putCheckFailure: (state, action) => {
+      console.log("putCheckFailure");
     },
     check: (state, action) => {
       const findId = state.list.findIndex(

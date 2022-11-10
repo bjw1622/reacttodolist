@@ -10,7 +10,9 @@ const TodoCheckBtnSyled = styled.input`
 const TodoCheckBtn = (props) => {
   const dispatch = useDispatch();
   const checkClick = () => {
-    dispatch(todoListAction.check(props.id, props.check));
+    dispatch(
+      todoListAction.putCheckRequest({ id: props.id, check: props.check })
+    );
   };
 
   return (

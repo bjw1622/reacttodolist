@@ -6,7 +6,7 @@ const EntryDeleteList = () => {
   const dispatch = useDispatch();
   const DeleteTotalList = () => {
     if (window.confirm("전체 삭제 하시겠습니까?")) {
-      dispatch(todoListAction.entryDelete());
+      dispatch(todoListAction.deleteEntryRequest());
     }
   };
   return (
