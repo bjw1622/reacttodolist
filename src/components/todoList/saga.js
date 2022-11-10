@@ -35,8 +35,20 @@ function* deleteTodo(action, payload) {
   }
 }
 
+function* deleteEntryTodo(action, payload) {
+  try {
+    yield call(api.deleteEntryTodo);
+    yield put({
+      type: todoListAction.deleteEntrySuccess,
+    });
+  } catch (error) {
+    yield put(todoListAction.deleteEntryFailure());
+  }
+}
+
 export function* watchTodoList() {
   yield takeLatest(todoListAction.addRequest, addTodo);
   yield takeLatest(todoListAction.getTodoRequest, getTodo);
   yield takeLatest(todoListAction.deleteRequest, deleteTodo);
+  yield takeLatest(todoListAction.deleteEntryRequest, deleteEntryTodo);
 }

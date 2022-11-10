@@ -32,6 +32,11 @@ app.delete("/todo", function (req, res) {
   res.json(todos);
 });
 
+app.delete("/todoEntry", function (req, res) {
+  todos = [];
+  res.json(todos);
+});
+
 app.get("/count", function (req, res) {
   res.json(counts);
 });

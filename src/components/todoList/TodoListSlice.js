@@ -37,12 +37,16 @@ const todoListSlice = createSlice({
     deleteFailure: (state, action) => {
       console.log("deleteFailure");
     },
-    entryDelete: (state, action) => {
+    deleteEntryRequest: (state, action) => {
+      console.log("deleteEntryRequest");
+    },
+    deleteEntrySuccess: (state, { payload }) => {
+      console.log("deleteEntrySuccess");
       state.list = [];
     },
-    // delete: (state, action) => {
-    //   state.list = state.list.filter((list) => list.id !== action.payload);
-    // },
+    deleteEntryFailure: (state, action) => {
+      console.log("deleteEntryFailure");
+    },
     change: (state, action) => {
       const findId = state.list.findIndex(
         (todoItem) => todoItem.id === action.payload.id

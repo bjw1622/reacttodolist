@@ -13,9 +13,13 @@ const deleteTodo = (itemId) => {
     },
   });
 };
+const deleteEntryTodo = () => {
+  return Axios.delete("http://localhost:3001/todoEntry");
+};
 const api = {
   getTodo,
   postTodo,
   deleteTodo,
+  deleteEntryTodo,
 };
 export default api;
