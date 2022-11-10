@@ -16,10 +16,19 @@ const deleteTodo = (itemId) => {
 const deleteEntryTodo = () => {
   return Axios.delete("http://localhost:3001/todoEntry");
 };
+const putTodoInputValue = (putData) => {
+  return Axios.put("http://localhost:3001/todoInputValue", {
+    data: {
+      Id: putData.id,
+      InputValue: putData.changeInputValue,
+    },
+  });
+};
 const api = {
   getTodo,
   postTodo,
   deleteTodo,
   deleteEntryTodo,
+  putTodoInputValue,
 };
 export default api;

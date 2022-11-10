@@ -47,14 +47,15 @@ const todoListSlice = createSlice({
     deleteEntryFailure: (state, action) => {
       console.log("deleteEntryFailure");
     },
-    change: (state, action) => {
-      const findId = state.list.findIndex(
-        (todoItem) => todoItem.id === action.payload.id
-      );
-      if (findId !== -1) {
-        state.list[findId].inputValue = action.payload.changeInputValue;
-        state.list[findId].check = false;
-      }
+    putInputValueRequest: (state, action) => {
+      console.log("putInputValueRequest");
+    },
+    putInputValueSuccess: (state, { payload }) => {
+      console.log("putInputValueSuccess");
+      state.list = payload.data;
+    },
+    putInputValueFailure: (state, action) => {
+      console.log("putInputValueFailure");
     },
     check: (state, action) => {
       const findId = state.list.findIndex(

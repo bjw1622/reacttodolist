@@ -9,7 +9,9 @@ const TodoChangeBtn = (props) => {
   const changeInput = () => {
     const changeInputValue = prompt("수정 내용을 입력해주세요");
     if (changeInputValue !== null) {
-      dispatch(todoListAction.change({ id: props.id, changeInputValue }));
+      dispatch(
+        todoListAction.putInputValueRequest({ id: props.id, changeInputValue })
+      );
     } else if (changeInputValue === null) {
       return;
     } else if (changeInputValue.trim() === "") {

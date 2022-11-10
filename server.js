@@ -37,6 +37,18 @@ app.delete("/todoEntry", function (req, res) {
   res.json(todos);
 });
 
+app.put("/todoInputValue", function (req, res) {
+  const findIndex = todos.find((todo) => todo.id === req.body.data.Id);
+  findIndex.inputValue = req.body.data.InputValue;
+  res.json(todos);
+});
+
+app.put("/todoCheckValue", function (req, res) {
+  const findIndex = todos.find((todo) => todo.id === req.body.data.Id);
+  // findIndex.inputValue = req.body.data.InputValue;
+  // res.json(todos);
+});
+
 app.get("/count", function (req, res) {
   res.json(counts);
 });

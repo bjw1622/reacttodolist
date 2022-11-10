@@ -46,9 +46,23 @@ function* deleteEntryTodo(action, payload) {
   }
 }
 
+function* putTodoInputValue(action, payload) {
+  try {
+    console.log(action.payload);
+    const putTodoList = yield call(api.putTodoInputValue, action.payload);
+    yield put({
+      type: todoListAction.putInputValueSuccess,
+      payload: putTodoList,
+    });
+  } catch (error) {
+    yield put(todoListAction.putInputValueFailure());
+  }
+}
+
 export function* watchTodoList() {
   yield takeLatest(todoListAction.addRequest, addTodo);
   yield takeLatest(todoListAction.getTodoRequest, getTodo);
   yield takeLatest(todoListAction.deleteRequest, deleteTodo);
   yield takeLatest(todoListAction.deleteEntryRequest, deleteEntryTodo);
+  yield takeLatest(todoListAction.putInputValueRequest, putTodoInputValue);
 }
