@@ -9,15 +9,15 @@ import Index from "./components/board/Index";
 import Write from "./components/board/Write";
 import TodoList from "./components/TodoList";
 import createSagaMiddleware from "redux-saga";
-import { applyMiddleware, createStore } from "redux";
 import rootReducer from "./rootReducer";
 import { watchCounter } from "./components/counter/saga";
-import { all, fork, takeLatest, delay, put } from "redux-saga/effects";
+import { all } from "redux-saga/effects";
+import { watchTodoList } from "./components/todoList/saga";
 
 const sagaMiddleware = createSagaMiddleware(); // 사가 미들웨어를 만듭니다.
 
 function* rootSaga() {
-  yield all([watchCounter()]);
+  yield all([watchCounter(), watchTodoList()]);
 }
 
 const store = () => {
