@@ -1,50 +1,20 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, current } from "@reduxjs/toolkit";
 
 const todoListSlice = createSlice({
   name: "todoListSlice",
   initialState: {
-    list: [
-      {
-        addDate: "02-11-2022",
-        check: false,
-        id: "saddasdasd-sadada-sdadasd1",
-        inputValue: "2022-11-02 Test1",
-      },
-      {
-        addDate: "02-11-2022",
-        check: false,
-        id: "saddasdasd-sadada-sdadasd2131",
-        inputValue: "2022-11-02 Test2",
-      },
-      {
-        addDate: "11-11-2022",
-        check: false,
-        id: "saddasdasd-sadada-sdadasd2",
-        inputValue: "2022-11-11",
-      },
-      {
-        addDate: "01-12-2022",
-        check: false,
-        id: "saddasdasd-sadada-sdadasd3",
-        inputValue: "2022-12-01",
-      },
-      {
-        addDate: "06-12-2022",
-        check: false,
-        id: "saddasdasd-sadada-sdadasdASD3",
-        inputValue: "2022-12-06",
-      },
-      {
-        addDate: "07-12-2022",
-        check: false,
-        id: "saddasdaASDsd-sadada-sdadasdASD3",
-        inputValue: "2022-12-07",
-      },
-    ],
+    list: [],
   },
   reducers: {
-    add: (state, action) => {
-      state.list.push(action.payload);
+    addRequest: (state, action) => {
+      console.log("addRequest");
+    },
+    addSuccess: (state, { payload }) => {
+      console.log("addSuccess");
+      state.list.push(payload);
+    },
+    addFailure: (state, action) => {
+      console.log("addFailure");
     },
     entryDelete: (state, action) => {
       state.list = [];
