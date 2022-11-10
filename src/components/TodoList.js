@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import AddList from "./todoList/AddList";
 import EntryDeleteList from "./todoList/EntryDeleteList";
@@ -46,13 +46,18 @@ const TodoList = () => {
 
   const getTodoList = useSelector((state) => state.addList.list);
 
+  useEffect(() => {
+    dispatch(todoListAction.getTodoRequest());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   const id = uuidv4();
 
   const dispatch = useDispatch();
 
   const addTodoList = () => {
     if (addData.inputValue !== null && addData.inputValue.trim() !== "") {
-      dispatch(todoListAction.add(addData));
+      dispatch(todoListAction.addRequest(addData));
       setInputVal("");
     } else {
       alert("값을 올바르게 입력해주세요");

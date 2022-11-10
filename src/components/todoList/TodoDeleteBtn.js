@@ -7,7 +7,7 @@ const TodoDeleteBtn = (props) => {
   const dispatch = useDispatch();
   const DeleteList = () => {
     if (window.confirm("삭제 하시겠습니까?")) {
-      dispatch(todoListAction.delete(props.id));
+      dispatch(todoListAction.deleteRequest(props.id));
     }
   };
   return (
