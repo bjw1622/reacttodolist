@@ -32,6 +32,9 @@ const putTodoCheck = (putData) => {
     },
   });
 };
+const getBoardList = () => {
+  return Axios.get("https://localhost:44347/Board/IndexBoardList", {});
+};
 
 const api = {
   getTodo,
@@ -40,5 +43,6 @@ const api = {
   deleteEntryTodo,
   putTodoInputValue,
   putTodoCheck,
+  getBoardList,
 };
 export default api;
