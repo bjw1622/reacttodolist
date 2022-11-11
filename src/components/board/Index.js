@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import { boardAction } from "./BoardSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
+import BoardItem from "./BoardItem";
 
 const BodyContent = styled.div`
    {
@@ -77,13 +78,15 @@ const Index = () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td className="text-center">{getBoardList.length}</td>
-            <td className="text-center">Mark</td>
-            <td className="text-center">Otto</td>
-            <td className="text-center">2</td>
-            <td className="text-center">3</td>
-          </tr>
+          {getBoardList.map((item, num) => {
+            return (
+              <BoardItem
+                key={item.No}
+                number={num + 1}
+                boardinfo={item}
+              ></BoardItem>
+            );
+          })}
         </tbody>
       </Table>
       <ButtonGroup
