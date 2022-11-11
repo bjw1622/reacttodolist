@@ -32,6 +32,7 @@ const putTodoCheck = (putData) => {
     },
   });
 };
+
 const api = {
   getTodo,
   postTodo,

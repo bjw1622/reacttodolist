@@ -21,7 +21,7 @@ const FindDiv = styled.div`
 const Index = () => {
   return (
     <BodyContent>
-      <h2 className={styles.Title}>게시판</h2>
+      {/* <h2 className={styles.Title}>게시판</h2> */}
       <hr />
       <FindDiv>
         <Form.Select

@@ -1,4 +1,4 @@
-import { createSlice, current } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 const todoListSlice = createSlice({
   name: "todoListSlice",
@@ -16,13 +16,12 @@ const todoListSlice = createSlice({
     getTodoFailure: (state, action) => {
       console.log("getTodoFailure");
     },
-
     addRequest: (state, action) => {
       console.log("addRequest");
     },
     addSuccess: (state, { payload }) => {
       console.log("addSuccess");
-      state.list = payload;
+      state.list = payload.data;
     },
     addFailure: (state, action) => {
       console.log("addFailure");
@@ -66,14 +65,6 @@ const todoListSlice = createSlice({
     },
     putCheckFailure: (state, action) => {
       console.log("putCheckFailure");
-    },
-    check: (state, action) => {
-      const findId = state.list.findIndex(
-        (todoItem) => todoItem.id === action.payload
-      );
-      if (findId !== -1) {
-        state.list[findId].check = !state.list[findId].check;
-      }
     },
   },
 });
