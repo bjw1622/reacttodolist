@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, current } from "@reduxjs/toolkit";
 
 const counterSlice = createSlice({
   name: "counterSlice",
@@ -9,7 +9,6 @@ const counterSlice = createSlice({
     },
     getCounstSucess: (state, { payload }) => {
       console.log("getCounstSucess /  통신 성공");
-      console.log(payload.data);
       state.value = payload.data;
     },
     getCounstFailure: (state, action) => {

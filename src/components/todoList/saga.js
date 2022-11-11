@@ -1,8 +1,8 @@
-import { takeLatest, put, call, delay } from "redux-saga/effects";
+import { takeLatest, put, call } from "redux-saga/effects";
 import api from "./api";
 import { todoListAction } from "./TodoListSlice";
 
-function* getTodo(action, payload) {
+function* getTodo(action) {
   try {
     const getTodoList = yield call(api.getTodo);
     yield put({
@@ -10,20 +10,21 @@ function* getTodo(action, payload) {
       payload: getTodoList.data,
     });
   } catch (error) {
+    console.log(error);
     yield put(todoListAction.getTodoFailure());
   }
 }
 
-function* addTodo(action, payload) {
+function* addTodo(action) {
   try {
-    const addTodoList = yield call(api.postTodo, action.payload);
-    yield put({ type: todoListAction.addSuccess, payload: addTodoList.data });
+    const todoList = yield call(api.postTodo, action.payload);
+    yield put({ type: todoListAction.addSuccess, payload: todoList });
   } catch (error) {
     yield put(todoListAction.addFailure());
   }
 }
 
-function* deleteTodo(action, payload) {
+function* deleteTodo(action) {
   try {
     const addTodoList = yield call(api.deleteTodo, action.payload);
     yield put({
@@ -35,7 +36,7 @@ function* deleteTodo(action, payload) {
   }
 }
 
-function* deleteEntryTodo(action, payload) {
+function* deleteEntryTodo(action) {
   try {
     yield call(api.deleteEntryTodo);
     yield put({
@@ -46,7 +47,7 @@ function* deleteEntryTodo(action, payload) {
   }
 }
 
-function* putTodoInputValue(action, payload) {
+function* putTodoInputValue(action) {
   try {
     const putTodoList = yield call(api.putTodoInputValue, action.payload);
     yield put({
@@ -58,7 +59,7 @@ function* putTodoInputValue(action, payload) {
   }
 }
 
-function* putTodoCheck(action, payload) {
+function* putTodoCheck(action) {
   try {
     const putTodoList = yield call(api.putTodoCheck, action.payload);
     yield put({

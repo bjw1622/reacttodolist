@@ -8,13 +8,12 @@ var cors = require("cors");
 
 // parse application/json
 app.use(bodyParser.json({ type: "application/json" }));
-app.use(cors({ origin: "http://localhost:3000", credentials: true }));
+// app.use(cors({ origin: "http://localhost:3000", credentials: true }));
+// 전체 허용
+app.use(cors());
 
-var todos = [];
-var counts = 0;
-app.get("/", function (req, res) {
-  res.send("Hello World");
-});
+let todos = [];
+let counts = 0;
 
 app.get("/todo", function (req, res) {
   res.json(todos);
@@ -45,7 +44,6 @@ app.put("/todoInputValue", function (req, res) {
 
 app.put("/todoCheckValue", function (req, res) {
   const findIndex = todos.find((todo) => todo.id === req.body.data.Id);
-  console.log(req.body);
   findIndex.check = !findIndex.check;
   res.json(todos);
 });
