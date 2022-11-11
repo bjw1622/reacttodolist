@@ -5,7 +5,9 @@ import styled from "styled-components";
 import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import { Link } from "react-router-dom";
-import styles from "./Index.module.css";
+import { boardAction } from "./BoardSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
 
 const BodyContent = styled.div`
    {
@@ -19,6 +21,14 @@ const FindDiv = styled.div`
   }
 `;
 const Index = () => {
+  const getBoardList = useSelector((state) => state.boardReducer.list);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(boardAction.getBoardListRequest());
+  }, []);
+
   return (
     <BodyContent>
       {/* <h2 className={styles.Title}>게시판</h2> */}
@@ -68,44 +78,9 @@ const Index = () => {
         </thead>
         <tbody>
           <tr>
-            <td className="text-center">1</td>
+            <td className="text-center">{getBoardList.length}</td>
             <td className="text-center">Mark</td>
             <td className="text-center">Otto</td>
-            <td className="text-center">2</td>
-            <td className="text-center">3</td>
-          </tr>
-          <tr>
-            <td className="text-center">2</td>
-            <td className="text-center">Jacob</td>
-            <td className="text-center">Thornton</td>
-            <td className="text-center">2</td>
-            <td className="text-center">3</td>
-          </tr>
-          <tr>
-            <td className="text-center">3</td>
-            <td className="text-center">Jacob</td>
-            <td className="text-center">Thornton</td>
-            <td className="text-center">2</td>
-            <td className="text-center">3</td>
-          </tr>
-          <tr>
-            <td className="text-center">4</td>
-            <td className="text-center">Jacob</td>
-            <td className="text-center">Thornton</td>
-            <td className="text-center">2</td>
-            <td className="text-center">3</td>
-          </tr>
-          <tr>
-            <td className="text-center">5</td>
-            <td className="text-center">Jacob</td>
-            <td className="text-center">Thornton</td>
-            <td className="text-center">2</td>
-            <td className="text-center">3</td>
-          </tr>
-          <tr>
-            <td className="text-center">6</td>
-            <td className="text-center">Jacob</td>
-            <td className="text-center">Thornton</td>
             <td className="text-center">2</td>
             <td className="text-center">3</td>
           </tr>
