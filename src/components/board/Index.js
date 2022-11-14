@@ -28,6 +28,7 @@ const Index = () => {
 
   useEffect(() => {
     dispatch(boardAction.getBoardListRequest());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
