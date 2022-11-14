@@ -5,6 +5,8 @@ import { todoListAction } from "./TodoListSlice";
 function* getTodo(action) {
   try {
     const getTodoList = yield call(api.getTodo);
+    const boardList = yield call(api.getBoardList);
+    console.log(boardList.data);
     yield put({
       type: todoListAction.getTodoSuccess,
       payload: getTodoList.data,

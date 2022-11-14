@@ -13,11 +13,12 @@ import rootReducer from "./rootReducer";
 import { watchCounter } from "./components/counter/saga";
 import { all } from "redux-saga/effects";
 import { watchTodoList } from "./components/todoList/saga";
+import { watchBoardList } from "./components/board/saga";
 
 const sagaMiddleware = createSagaMiddleware(); // 사가 미들웨어를 만듭니다.
 
 function* rootSaga() {
-  yield all([watchCounter(), watchTodoList()]);
+  yield all([watchCounter(), watchTodoList(), watchBoardList()]);
 }
 
 const store = () => {

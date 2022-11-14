@@ -5,7 +5,18 @@ const boardSlice = createSlice({
   initialState: {
     list: [],
   },
-  reducers: {},
+  reducers: {
+    getBoardListRequest: (state, action) => {
+      console.log("getBoardListRequest");
+    },
+    getBoardListSuccess: (state, { payload }) => {
+      console.log("getBoardListSuccess");
+      state.list = payload;
+    },
+    getBoardListFailure: (state, action) => {
+      console.log("getBoardListFailure");
+    },
+  },
 });
 
 export const boardReducer = boardSlice.reducer;
