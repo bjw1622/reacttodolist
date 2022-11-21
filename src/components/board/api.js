@@ -16,4 +16,5 @@ const api = {
   getBoardList,
   writeBoard,
 };
+
 export default api;

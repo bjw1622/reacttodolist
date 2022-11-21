@@ -21,6 +21,10 @@ const boardSlice = createSlice({
     },
     addBoardSuccess: (state, { payload }) => {
       console.log("addBoardSuccess");
+      if (payload.data !== -1) {
+        alert("글 작성이 완료 되었습니다.");
+        // window.location.href("http://localhost:3000/board");
+      }
     },
     addBoardFailure: (state, action) => {
       console.log("addBoardFailure");

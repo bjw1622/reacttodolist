@@ -19,9 +19,9 @@ function* getBoardList(action) {
 function* addBoard(action) {
   try {
     const addBoard = yield call(api.writeBoard, action.payload);
-    console.log(addBoard);
     yield put({
       type: boardAction.addBoardSuccess,
+      payload: addBoard,
     });
   } catch (error) {
     yield put({
