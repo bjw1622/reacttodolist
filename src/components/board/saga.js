@@ -1,8 +1,8 @@
 import { takeLatest, put, call } from "redux-saga/effects";
 import api from "./api";
-import { boardAction, boardReducer } from "./BoardSlice";
+import { boardAction } from "./BoardSlice";
 
-function* getTodo(action) {
+function* getBoardList(action) {
   try {
     const getBoardList = yield call(api.getBoardList);
     yield put({
@@ -16,6 +16,21 @@ function* getTodo(action) {
   }
 }
 
+function* addBoard(action) {
+  try {
+    const addBoard = yield call(api.writeBoard, action.payload);
+    console.log(addBoard);
+    yield put({
+      type: boardAction.addBoardSuccess,
+    });
+  } catch (error) {
+    yield put({
+      type: boardAction.addBoardFailure,
+    });
+  }
+}
+
 export function* watchBoardList() {
-  yield takeLatest(boardAction.getBoardListRequest, getTodo);
+  yield takeLatest(boardAction.getBoardListRequest, getBoardList);
+  yield takeLatest(boardAction.addBoardRequest, addBoard);
 }

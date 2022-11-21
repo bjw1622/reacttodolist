@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, current } from "@reduxjs/toolkit";
 
 const boardSlice = createSlice({
   name: "boardSlice",
@@ -15,6 +15,15 @@ const boardSlice = createSlice({
     },
     getBoardListFailure: (state, action) => {
       console.log("getBoardListFailure");
+    },
+    addBoardRequest: (state, action) => {
+      console.log("addBoardRequest");
+    },
+    addBoardSuccess: (state, { payload }) => {
+      console.log("addBoardSuccess");
+    },
+    addBoardFailure: (state, action) => {
+      console.log("addBoardFailure");
     },
   },
 });
