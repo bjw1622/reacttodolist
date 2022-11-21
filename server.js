@@ -2,6 +2,8 @@ const express = require("express");
 const app = express();
 var bodyParser = require("body-parser");
 var cors = require("cors");
+const { default: Axios } = require("axios");
+const router = express.Router();
 
 // parse application/x-www-form-urlencoded
 //app.use(bodyParser.urlencoded({ extended: false }))
@@ -55,6 +57,13 @@ app.get("/count", function (req, res) {
 app.post("/count", function (req, res) {
   counts++;
   res.send(counts.toString());
+});
+
+app.get("/getBoardList", function (req, res) {
+  const boardList = () => {
+    return Axios.get("http://board-www.board.com/Board/IndexBoardList");
+  };
+  console.log(boardList());
 });
 
 app.listen(3001);

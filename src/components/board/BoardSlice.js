@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, current } from "@reduxjs/toolkit";
 
 const boardSlice = createSlice({
   name: "boardSlice",
@@ -15,6 +15,19 @@ const boardSlice = createSlice({
     },
     getBoardListFailure: (state, action) => {
       console.log("getBoardListFailure");
+    },
+    addBoardRequest: (state, action) => {
+      console.log("addBoardRequest");
+    },
+    addBoardSuccess: (state, { payload }) => {
+      console.log("addBoardSuccess");
+      if (payload.data !== -1) {
+        alert("글 작성이 완료 되었습니다.");
+        // window.location.href("http://localhost:3000/board");
+      }
+    },
+    addBoardFailure: (state, action) => {
+      console.log("addBoardFailure");
     },
   },
 });
