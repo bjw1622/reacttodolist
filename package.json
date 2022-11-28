@@ -30,6 +30,7 @@
     "react-scripts": "5.0.1",
     "redux": "^4.2.0",
     "redux-saga": "^1.2.1",
+    "serve": "^14.1.2",
     "styled": "^1.0.0",
     "styled-components": "^5.3.6",
     "styled-reset": "^4.4.2",
