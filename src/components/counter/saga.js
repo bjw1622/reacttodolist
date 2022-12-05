@@ -1,12 +1,10 @@
-import { takeLatest, put, call, delay } from "redux-saga/effects";
+import { takeLatest, put, call } from "redux-saga/effects";
 import api from "./api";
 import { counterAction } from "./Slice";
 
 function* getCount(action) {
   try {
     const counter = yield call(api.getCount);
-    // const boardList = yield call(api.getBoardList);
-    // console.log(boardList);
     yield put({ type: counterAction.getCounstSucess, payload: counter });
   } catch (error) {
     yield put(counterAction.upFailure());
