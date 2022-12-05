@@ -7,7 +7,7 @@ function* getTodo(action) {
     const getTodoList = yield call(api.getTodo);
     yield put({
       type: todoListAction.getTodoSuccess,
-      payload: getTodoList.data,
+      data: getTodoList.data,
     });
   } catch (error) {
     console.log(error);
