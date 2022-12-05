@@ -9,9 +9,9 @@ const todoListSlice = createSlice({
     getTodoRequest: (state, action) => {
       console.log("getTodoRequest");
     },
-    getTodoSuccess: (state, data) => {
+    getTodoSuccess: (state, { ...data }) => {
       console.log("getTodoSuccess");
-      state.list = data.payload;
+      state.list = data.data;
     },
     getTodoFailure: (state, action) => {
       console.log("getTodoFailure");
